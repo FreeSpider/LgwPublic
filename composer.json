@@ -1,0 +1,17 @@
+{
+  "name" : "ferrewagner/Lgw-Public",
+  "description" : "PHP Public Lib",
+  "license":"MIT",
+  "version":"1.0",
+  "authors": [
+    {
+      "name": "FerreWagner",
+      "email": "xx@gmail.com"
+    }
+  ],
+  "require" : {
+    "php" : ">=5.5.0"
+  },
+  "keywords" : [ "FerreWagner", "Public Lib" ],
+  "type" : "Lib"
+}
