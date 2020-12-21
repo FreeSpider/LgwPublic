@@ -1,6 +1,6 @@
 # Team Lib 团队共有库 #
 
->Public Lib - by Ferre
+>Public Lib
 
 
 <p align="center"><img src="https://raw.githubusercontent.com/FreeSpider/Resources/master/img/alexa-logo.png"></p>
@@ -14,4 +14,4 @@
 基于常用业务及开发的公有库
 
 
-使用： `composer require FreeSpider/Alexa-Date`
+使用： `composer require FreeSpider/Lgw-Public`
