@@ -27,6 +27,14 @@ class PublicServe
         return $data;
     }
 
+    /**
+     * 对不存在的参数置空，避免CRM强类型错误notice
+     * @Author: Ferre
+     * @create: 2020/12/30 14:02
+     * @param $search_data
+     * @param $str
+     * @return mixed
+     */
     public static function issetSearch($search_data, $str)
     {
         if (strstr($str, ',')){
@@ -34,12 +42,61 @@ class PublicServe
         }else{
             $arr_str = [$str];
         }
-
+        foreach ($arr_str as $k => $v){
+            if (!in_array($k, $search_data)){
+                $search_data[$k] = '';
+            }
+        }
+        return $search_data;
     }
 
-    public static function sendRequest()
+    /**
+     * 发送请求 GET OR POST (可带参数,GET拼接在URL中，post为第三个参数)
+     * @Author: Ferre
+     * @create: 2021/1/11 14:11
+     * @param string $type
+     * @param $url
+     * @param string $arr
+     * @return bool|false|string
+     */
+    public static function sendRequest($type = 'GET', $url, $arr = '')
     {
-        //TODO
+        if ($type == 'GET'){
+            $data = file_get_contents($url);
+        }elseif ($type == 'POST'){
+            $data = self::curl_post($url, $arr);
+        }
+        return $data;
+    }
+
+    /**
+     * CURL-POST 方法
+     * @Author: Ferre
+     * @create: 2021/1/11 14:04
+     * @param $url
+     * @param $data
+     * @return bool|string
+     */
+    public static function curl_post($url, $data)
+    {
+        $url = str_replace(' ','+',$url);
+        $ch  = curl_init();
+        //设置选项，包括URL
+        curl_setopt($ch, CURLOPT_URL, "$url");
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch,CURLOPT_TIMEOUT,3);  //定义超时3秒钟
+        // POST数据
+        curl_setopt($ch, CURLOPT_POST, 1);
+        // 把post的变量加上
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        //执行并获取url地址的内容
+        $output = curl_exec($ch);
+        //释放curl句柄
+        curl_close($ch);
+        return $output;
     }
 
     //TODO 多isset - html去除 - curl - 正则替换（特殊替换及通用替换） - 指定天数时间戳 or 特殊年月周时间戳获取 - ... GET POST 一键变化
