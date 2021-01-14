@@ -99,5 +99,10 @@ class PublicServe
         return $output;
     }
 
+    public static function fixedDaysTime($year, $day)
+    {
+        echo strtotime($year);die;
+    }
+
     //TODO 多isset - html去除 - curl - 正则替换（特殊替换及通用替换） - 指定天数时间戳 or 特殊年月周时间戳获取 - ... GET POST 一键变化
 }
