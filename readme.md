@@ -14,4 +14,4 @@
 基于常用业务及开发的公有库
 
 
-使用： `composer require FreeSpider/Lgw-Public`
+使用： `composer require ferrewagner/lgw-public`
