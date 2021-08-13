@@ -11,7 +11,7 @@
 <br />
 
 
-基于常用业务及开发的公有库12
+基于常用业务及开发的公有库12123
 
 
 使用： `composer require ferrewagner/lgw-public`
