@@ -101,7 +101,7 @@ class PublicServe
 
     public static function fixedDaysTime($year, $day)
     {
-        echo 2;
+        echo 23;
         echo strtotime($year);die;
     }
 
