@@ -2,7 +2,7 @@
   "name" : "ferrewagner/lgw-public",
   "description" : "PHP Public Lib",
   "license":"MIT",
-  "version":"2.2",
+  "version":"2.3",
   "authors": [
     {
       "name": "FerreWagner",
