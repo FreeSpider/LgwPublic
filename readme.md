@@ -1,7 +1,7 @@
 # Team Lib 团队共有库 #
 
->Public Lib test
-testgogogo
+>Public Lib V2.2
+
 
 <p align="center"><img src="https://raw.githubusercontent.com/FreeSpider/Resources/master/img/alexa-logo.png"></p>
 <p align="center">
@@ -11,7 +11,7 @@ testgogogo
 <br />
 
 
-基于常用业务及开发的公有库-Ferre
+基于常用业务及开发的公有库
 
 
 使用： `composer require ferrewagner/lgw-public`
